@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/bootstrap.min.css')}}"
+      class="css"
+    />
+    <link rel="stylesheet" href="../static/styles.css" class="css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" class="css">
+    {%block title%} {%endblock%}
+  </head>
+  <body>
+    <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" id="nav" s>
+      <div class="container-fluid">
+        <a class="navbar-brand mt-2" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style= "{{style_of_ham}}"" 
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('features')}}">Feautres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('about_us')}}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex mb-3 mt-3 " role="search" style="padding-right: 5px;">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success " type="submit">
+              Search
+            </button>   
+            
+          </form>
+          <div class="login-system d-flex ">
+            {%if not is_logged_in:%}
+            <a href="{{url_for('login')}}"><button class="btn btn-primary ms-2" >Log-in</button></a>
+            <a href="{{ url_for('sign_up') }}"><button class="btn btn-primary ms-2">Sign-up</button></a>
+            {%endif%}
+            
+            </span>
+           
+                
+              </div>
+          </div>
+          <span class="user" >
+            {%if is_logged_in:%}
+              <a class="nav-link pe-0 ps-2 d-flex mt-1" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar avatar-xl">
+                    <img class="rounded-circle" src="{{url_for('static', filename='images/user.png')}}" alt="" style="width: 40px;">
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
+                  <div class="bg-white dark__bg-1000 rounded-2 py-2">
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <a class="dropdown-item" href="pages/user/profile.html">Profile &amp; account</a>
+                    <a class="dropdown-item" href="#!">Feedback</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="pages/user/settings.html">Settings</a>
+                    <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
+                  </div>
+                  {%endif%}
+        </div>
+        
+      </div>
+    </nav>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+  </body>
+</html>

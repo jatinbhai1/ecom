@@ -1,0 +1,47 @@
+
+{%with messages=get_flashed_messages()%}
+{%if messages:%}
+{%for message in messages:%}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{%endfor%}
+{%endif%}
+{%endwith%}
+{%include "header.html"%}
+
+
+<img src="{{url_for('static', filename='/images/main.png')}}" alt="" style="width: 100vw;">
+
+<div class="conatiner">
+    
+        <h1 style="text-align: center;">Product Categories</h1>
+        
+        
+   
+    <div class="container">
+        
+        <div class="row" style="margin: auto;">
+            {%for category in product_category:%}
+            <div class="col-xl-4 col-lg-4 col-md-6 col-12 ">
+                <div class="card mt- mb-3 mx-auto " style="width: 18rem;" style="margin-right:1rem">
+                    <img src="../static/upload/{{category.img_loc}}" class="card-img-top" alt="..." style="width: 286px; height: 200px;">
+                    <div class="card-body">
+                      <h5 class="card-title">   {{category.product_category}}</h5>
+                      
+                      <a href="{{url_for('view_category', id = category.id)}}" class="btn btn-primary">View all</a>
+                    </div>
+                  </div>
+            </div>
+            
+            {%endfor%}
+        </div>
+        
+    </div>
+    
+
+
+</div>
+
+{%include "footer.html"%}

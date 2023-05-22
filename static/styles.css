@@ -1,0 +1,10 @@
+#nav{
+    background-color: #7ED3F7 !important;
+    
+}
+nav ul li a{
+    color: white !important;
+    font-size: 1.4rem !important;
+    font-weight: bolder;
+    
+}

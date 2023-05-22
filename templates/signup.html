@@ -1,0 +1,16 @@
+
+{%include 'bootstrap/base.html'%}
+{%import 'bootstrap/wtf.html' as wtf%}
+<div class="container " style="width: 60vw;margin-top: 20vh;">
+    <h1>Sign-up</h1>
+    {%with messages=get_flashed_messages()%}
+    {%if messages:%}
+        {%for message in messages%}
+            <p style="color: red;">{{message}}</p>
+        {%endfor%}
+    {%endif%}
+    {%endwith%}
+    {{wtf.quick_form(form, button_map={'submit':'primary'})}}
+
+   
+</div>

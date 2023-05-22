@@ -1,0 +1,47 @@
+{%include 'header.html'%}
+{%with messages = get_flashed_messages()%}
+{%if messages%}
+{%for message in messages%}
+    <p style="color: red;">{{message}}</p>
+{%endfor%}
+{%endif%}
+{%endwith%}
+<h1 style="margin-top: 40px; text-align: center;">Products</h1>
+{%if product_list%}
+    {%for product in product_list:%}
+    
+        <div class="container" style="width: 90vw; border-radius: 8px; border: solid 1px; margin-top: 20px;margin-bottom: 20px;">
+            <div class="d-flex">
+                <div class="img">
+                    <a href="#"><img src="../static/images/ceiling.webp" alt=""
+                        style="margin: 30px;margin-left: -10px; width: 30vw; height: 30vh; padding: 5px; background-color: rgb(139, 135, 135) ;background-blend-mode: darken; "></a>
+                </div>
+                <div class="product-head">
+                    
+                   <a href="#" style="text-decoration: none; color: black;"> <h2 style="margin-top:20px ;font-weight: bold;">{{product.pro_name}}</h2></a>
+                    
+                    <h3 style="margin-top: 30px;">₹{{product.formatted_price}}</h3>
+                    
+                    <div class="button-page d-flex" style="margin-top: 40px; display: flex;">
+                        <div class="row" style="line-height: 2;">
+                            <div class="col-sm-6 col-12">
+                                <button class="btn btn-warning btn-lg ms-3 mb-3" >Buy Now</button>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <button class="btn btn-secondary btn-lg ms-3 mb-3">Add to Cart</button>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    {%endfor%}
+    {%else%}
+    <h3>No available product</h3>
+        
+{%endif%}
+
+{%include 'footer.html'%}

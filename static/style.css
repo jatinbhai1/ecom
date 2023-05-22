@@ -1,0 +1,11 @@
+.user{
+    top: 5px;
+}
+@media (max-width: 991px) {
+    /* Styles to apply when screen width is less than 992 pixels */
+    .user{
+        position: absolute;
+        right: 10px;
+        top: 15px;
+    }
+  }
